@@ -1,0 +1,6 @@
+function output_spec = StretchSpectrum(input_spec, alpha)
+
+w = (0 : length(input_spec));
+output_spec =...
+  exp(interp1(w, log([input_spec; input_spec(end, :)]),...
+  w(1 : end - 1) / alpha, 'linear', 'extrap'));
